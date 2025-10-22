@@ -10,6 +10,7 @@ class Author(models.Model):
     email = models.EmailField(verbose_name='მეილი')
     birth_date = models.DateField(verbose_name='დაბადების თარიღი', null=True)
     country = models.CharField(verbose_name="ქცეყანა", max_length=100, null=True)
+    profile_image = models.ImageField(verbose_name='პროფილის სურათი')
 
     @property
     def age(self) -> int:
