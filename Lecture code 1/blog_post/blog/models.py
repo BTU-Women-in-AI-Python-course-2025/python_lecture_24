@@ -9,6 +9,7 @@ class Author(models.Model):
     last_name = models.CharField(verbose_name='გვარი', max_length=100)
     email = models.EmailField(verbose_name='მეილი')
     birth_date = models.DateField(verbose_name='დაბადების თარიღი', null=True)
+    country = models.CharField(verbose_name="ქცეყანა", max_length=100, null=True)
 
     @property
     def age(self) -> int:
