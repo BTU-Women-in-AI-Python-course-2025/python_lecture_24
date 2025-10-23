@@ -10,6 +10,7 @@ class Author(models.Model):
     email = models.EmailField(verbose_name='Email')
     birth_date = models.DateField(verbose_name='Birth date', null=True)
     profile_image = models.ImageField(verbose_name='Profile image', null=True)
+    age = models.IntegerField(verbose_name='Age', null=True)
 
     @property
     def age(self) -> int:
