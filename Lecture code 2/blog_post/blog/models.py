@@ -11,6 +11,7 @@ class Author(models.Model):
     birth_date = models.DateField(verbose_name='Birth date', null=True)
     profile_image = models.ImageField(verbose_name='Profile image', null=True)
     country = models.CharField(verbose_name='Country', max_length=100)
+    age = models.IntegerField(verbose_name='Age', null=True)
 
     @property
     def age(self) -> int:
