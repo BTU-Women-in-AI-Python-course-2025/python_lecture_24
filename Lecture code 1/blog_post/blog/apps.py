@@ -1,4 +1,5 @@
 from django.apps import AppConfig
+from django.db import OperationalError, ProgrammingError
 
 
 class BlogConfig(AppConfig):
@@ -7,5 +8,9 @@ class BlogConfig(AppConfig):
 
 
     def ready(self):
-        from blog.management.commands.delete_blog_post_periodic_task import create_periodic_task
-        create_periodic_task()
+        from .management.commands.delete_blog_post_periodic_task import create_periodic_task
+        try:
+            create_periodic_task()
+        except (OperationalError, ProgrammingError):
+            # Database tables might not exist yet (e.g., before migrate)
+            pass
