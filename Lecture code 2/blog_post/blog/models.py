@@ -9,6 +9,8 @@ class Author(models.Model):
     last_name = models.CharField(verbose_name='Last name', max_length=100)
     email = models.EmailField(verbose_name='Email')
     birth_date = models.DateField(verbose_name='Birth date', null=True)
+    profile_image = models.ImageField(verbose_name='Profile image', null=True)
+    country = models.CharField(verbose_name='Country', max_length=100)
 
     @property
     def age(self) -> int:
